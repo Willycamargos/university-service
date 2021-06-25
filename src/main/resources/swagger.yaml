@@ -1,0 +1,70 @@
+---
+swagger: "2.0"
+info:
+  description: ""
+  version: "1.0.0"
+  title: "Desafio - University Service "
+
+basePath: "/https://editor.swagger.io/"
+schemes:
+  - "http"
+paths:
+  /professor:
+    post:
+      tags:
+        - "professor"
+      summary: "Cadastrar um novo professor"
+      operationId: "cadastrarProfessor"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      parameters:
+        - in: body
+          name: "professor"
+          required: true
+          schema:
+            $ref: "#/definitions/Professor"
+      responses:
+        200:
+          description: "Professor cadastrado com sucesso"
+          schema:
+            $ref: "#/definitions/Professor"
+        405:
+          description: "Dados do inválidos"
+
+definitions:
+  Professor:
+    type: "object"
+    required:
+      - nome
+      - numeroMatricula
+      - endereco
+    properties:
+      nome:
+        type: string
+        example: "Marcelo Moreira"
+      numeroMatricula:
+        type: integer
+      endereco:
+        $ref: "#/definitions/Endereco"
+  Endereco:
+    required:
+      - logradouro
+      - numero
+      - cidade
+      - estado
+    type: object
+    properties:
+      logradouro:
+        type: integer
+        example: "Avenida Afonso Pena"
+      numero:
+        type: string
+        example: 155
+      cidade:
+        type: string
+        example: Belo Horizonte
+      estado:
+        type: string
+        example: Minas Gerais
