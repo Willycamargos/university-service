@@ -1,7 +1,7 @@
 spring:
 
   datasource:
-    url: jdbc:postgresql://developer.localserver:5432/university_service
+    url: jdbc:postgresql://192.168.0.201:5432/university_service
     username: localApiDatabaseUser
     password: "@iC4mrJLa0uv5@"
     initialization-mode: always
