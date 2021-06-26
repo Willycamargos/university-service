@@ -14,7 +14,7 @@ public class Endereco {
     @Column(name = "id_endereco", columnDefinition = "VARCHAR(36)")
     private String idEndereco;
     private String logradouro;
-    private int numero;
+    private String numero;
     private String cidade;
     private String estado;
 
@@ -34,11 +34,11 @@ public class Endereco {
         this.logradouro = logradouro;
     }
 
-    public int getNumero() {
+    public String getNumero() {
         return numero;
     }
 
-    public void setNumero(int numero) {
+    public void setNumero(String numero) {
         this.numero = numero;
     }
 

@@ -3,6 +3,7 @@ package estudos.universityservice.model;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "curso")
@@ -13,7 +14,13 @@ public class Curso {
     @Column(name = "id_curso", columnDefinition = "VARCHAR(36)")
     private String idCurso;
     private String nome;
-    private String materia;
+    private String turno;
+
+    @OneToMany
+    private List<Aluno> alunos;
+
+    @OneToMany
+    private List<Disciplina> disciplinas;
 
     public String getIdCurso() {
         return idCurso;
@@ -31,11 +38,28 @@ public class Curso {
         this.nome = nome;
     }
 
-    public String getMateria() {
-        return materia;
+    public String getTurno() {
+        return turno;
     }
 
-    public void setMateria(String materia) {
-        this.materia = materia;
+    public void setTurno(String turno) {
+        this.turno = turno;
+    }
+
+    public List<Aluno> getAlunos() {
+        return alunos;
+    }
+
+    public void setAlunos(List<Aluno> alunos) {
+        this.alunos = alunos;
+    }
+
+    public List<Disciplina> getDisciplinas() {
+        return disciplinas;
+    }
+
+    public void setDisciplinas(List<Disciplina> disciplinas) {
+        this.disciplinas = disciplinas;
     }
 }
+
