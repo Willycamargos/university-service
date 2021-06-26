@@ -1,6 +1,12 @@
 package estudos.universityservice.repository;
 
-public interface ProfessorRepository{
+import estudos.universityservice.model.Professor;
+import org.springframework.data.repository.PagingAndSortingRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface ProfessorRepository extends PagingAndSortingRepository<Professor,String> {
+
 
 
 }

@@ -1,6 +1,9 @@
 package estudos.universityservice.controller;
 
 import estudos.universityservice.model.Professor;
+import estudos.universityservice.repository.ProfessorRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,11 +15,16 @@ import java.util.List;
 @RestController
 @RequestMapping("professores")
 public class ProfessorController {
+
+    private final ProfessorRepository repository;
+
+    @Autowired
+    public ProfessorController(ProfessorRepository repository) {
+        this.repository = repository;
+    }
+
     @GetMapping
-    public ResponseEntity<List<Professor>>getProfessor(){
-        Professor professor = new Professor();
-        professor.setNome("Carlos");
-        professor.setNumeroMatricula(14);
-        return ResponseEntity.ok(Collections.singletonList(professor));
+    public ResponseEntity<?> getProfessor() {
+        return ResponseEntity.ok(repository.findAll());
     }
 }

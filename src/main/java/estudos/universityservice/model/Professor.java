@@ -1,9 +1,32 @@
 package estudos.universityservice.model;
 
+import org.hibernate.annotations.GenericGenerator;
+
+import javax.persistence.*;
+
+@Entity
+@Table(name = "professor")
 public class Professor {
+
+    @Id
+    @GeneratedValue(generator = "hibernate-uuid")
+    @GenericGenerator(name = "hibernate-uuid", strategy = "uuid2")
+    @Column(name = "id_prefessor", columnDefinition = "VARCHAR(36)")
+    private String idProfessor;
     private String nome;
     private int numeroMatricula;
+
+    @OneToOne
+    @JoinColumn(name = "id_endereco", columnDefinition = "VARCHAR(36)")
     private Endereco endereco;
+
+    public String getIdProfessor() {
+        return idProfessor;
+    }
+
+    public void setIdProfessor(String idProfessor) {
+        this.idProfessor = idProfessor;
+    }
 
     public String getNome() {
         return nome;
