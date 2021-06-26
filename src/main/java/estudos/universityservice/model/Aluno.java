@@ -5,14 +5,13 @@ import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "professor")
-public class Professor {
-
+@Table(name = "aluno")
+public class Aluno {
     @Id
     @GeneratedValue(generator = "hibernate-uuid")
     @GenericGenerator(name = "hibernate-uuid", strategy = "uuid2")
-    @Column(name = "id_prefessor", columnDefinition = "VARCHAR(36)")
-    private String idProfessor;
+    @Column(name = "id_aluno", columnDefinition = "VARCHAR(36)")
+    private String idAluno;
     private String nome;
     private int numeroMatricula;
 
@@ -20,12 +19,12 @@ public class Professor {
     @JoinColumn(name = "id_endereco", columnDefinition = "VARCHAR(36)")
     private Endereco endereco;
 
-    public String getIdProfessor() {
-        return idProfessor;
+    public String getIdAluno() {
+        return idAluno;
     }
 
-    public void setIdProfessor(String idProfessor) {
-        this.idProfessor = idProfessor;
+    public void setIdAluno(String idAluno) {
+        this.idAluno = idAluno;
     }
 
     public String getNome() {
