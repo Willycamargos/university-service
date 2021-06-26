@@ -1,11 +1,25 @@
 spring:
-  data:
-    mongodb:
-      host: 192.168.0.201
-      port: 27018
-      database: universityDB
-      password: root
-      username: root
-      authentication-database: admin
+
+  datasource:
+    url: jdbc:postgresql://developer.localserver:5432/university_service
+    username: localApiDatabaseUser
+    password: "@iC4mrJLa0uv5@"
+    initialization-mode: always
+    hikari:
+      connection-timeout: 20000
+      maximum-pool-size: 5
+
+  mvc:
+    favicon:
+      enabled: false
+  jpa:
+    hibernate:
+      ddl-auto: none
+    properties:
+      dialect: org.hibernate.dialect.PostgreSQLDialect
+      database-platform: org.hibernate.dialect.PostgreSQLDialect
+    generate-ddl: true
+    show-sql: true
+
 server:
-  port: 8080
+  port: 80
