@@ -1,4 +1,4 @@
-package estudos.univertiryserive.model;
+package estudos.universityservice.model;
 
 public class Professor {
     private String nome;
