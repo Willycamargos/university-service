@@ -16,7 +16,7 @@ public class Professor {
     private String nome;
     private int numeroMatricula;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     @JoinColumn(name = "id_endereco", columnDefinition = "VARCHAR(36)")
     private Endereco endereco;
 
